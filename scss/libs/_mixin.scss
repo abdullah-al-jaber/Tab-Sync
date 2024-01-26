@@ -1,0 +1,10 @@
+@mixin flex($dir:column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $dir;
+
+  & > * {
+    flex: 0 0 auto;
+  }
+}

@@ -1,0 +1,146 @@
+@import "./libs/all";
+
+* {
+  letter-spacing: 0.01em;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+a {
+  $bar-color: #05c;
+  color: #08f;
+  background: linear-gradient($bar-color, $bar-color);
+  background-repeat: no-repeat;
+  background-size: 0% 3%;
+  padding: 0.5% 0;
+  background-position: 0 100%;
+  transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out,
+    font-weight 0.5s ease-in-out, letter-spacing 0.5s ease-in-out;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  cursor: none;
+
+  &:hover,
+  &:focus {
+    color: $bar-color;
+  }
+
+  &:hover {
+    background-size: 100% 3%;
+  }
+
+  &:focus {
+    font-weight: 500;
+    letter-spacing: 0.012em;
+    background-size: 100% 5%;
+  }
+}
+
+div.info {
+  @include flex;
+  align-items: start;
+  flex: 1 1 auto;
+
+  span.title {
+    font-size: 1.25em;
+    font-weight: 550;
+  }
+
+  span.description {
+    font-size: 0.8em;
+  }
+
+  span.id,
+  span.email {
+    font-weight: 450;
+  }
+}
+
+span.icon {
+  @include flex;
+  display: inline-flex;
+  font-size: 1.5em;
+  aspect-ratio: 1;
+}
+
+div.logo {
+  @include flex;
+  display: inline-flex;
+  aspect-ratio: 1;
+
+  span.icon {
+    font-size: 2em;
+  }
+}
+
+div.button {
+  @include flex(row);
+  display: inline-flex;
+  padding: 1em;
+  background-color: #0001;
+  border-radius: 50pc;
+  gap: 1em;
+  overflow: hidden;
+  position: relative;
+
+  span.icon {
+    font-size: 1.8em;
+  }
+
+  span.ripple {
+    position: absolute;
+    transform: translate(-50% -50%);
+    width: 0;
+    aspect-ratio: 1;
+    background-color: #0004;
+    transition: width 0.5s ease-in-out;
+
+    &.fade {
+      width: 200%;
+    }
+  }
+}
+
+span.switch {
+  overflow:hidden;
+  width: 80px;
+  @include flex();
+  display: inline-flex;
+  aspect-ratio: 2;
+  background-color: #0002;
+  border-radius: 50pc;
+  position: relative;
+  transition: background-color 0.5s ease-in-out;
+
+  span.ball {
+    @include flex;
+    height: 75%;
+    display: inline-flex;
+    aspect-ratio: 1;
+    border-radius: 50pc;
+    background-color: #fff;
+    position: absolute;
+    left: 8.75%;
+    transition: left 0.5s ease-in-out;
+  }
+
+  &.active {
+    background-color: #f5d;
+
+    span.ball {
+      left: 91.25%;
+    }
+  }
+}
+
+div.preloader {
+  @include flex;
+  
+}
